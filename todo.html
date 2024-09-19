@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            font-family: Verdana;
+        }
+
+        .main{
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(218, 217, 217);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+          
+
+        }
+        .container{
+            max-width: 500px;
+            min-height: 300px;
+            padding-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 0.5 white;
+            background-color: white;
+            margin-top: 20px;
+          
+           
+        }
+
+      
+
+        .heading{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 400;
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        .inputbox{
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            margin: auto;
+            padding: 8px;
+            background-color: antiquewhite;
+
+        }
+
+        input{
+            background-color: transparent;
+            border: 1px rgb(207, 198, 198) solid;
+            padding: 5px;
+            border-radius: 5px;
+            flex-grow: 1;
+            margin: 0px 5px;
+        }
+
+        input:focus{
+            outline: none;
+
+        }
+
+        #btnadd{
+            padding: 8px 11px;
+            background-color: rgb(214, 185, 148);
+            border-radius: 5px;
+            outline: none;
+            border: none;
+
+        }
+
+        #btnadd:hover{
+            background-color: rgb(238, 200, 151);
+            border: 0.5px gray solid;
+
+        }
+
+        ul{
+            list-style: none;
+            margin: 8px 10px;
+            padding-top: 10px;
+         
+        }
+
+        li{
+            margin-bottom: 15px;
+            padding-bottom: 1px;
+            border-bottom: 0.5px black solid;
+            position: relative;
+        }
+
+        li button{
+            background-color: transparent;
+            border: none;
+        }
+
+        #btndelete{
+            position: absolute;
+            right: 5px;
+        }
+
+        #btnedit{
+            position: absolute;
+            right: 30px;
+        }
+
+        .toggle{
+            text-decoration: line-through;
+
+        }
+
+        textarea{
+            outline: none;
+            resize: none;
+            border: none;
+            margin: 10px;
+            border-radius: 10px;
+            flex-grow: 1;
+            
+
+        }
+
+        
+
+        #input1{
+          
+            background-color: rgb(255, 224, 184);
+            padding: 10px 5px;
+        }
+
+        .add{
+           background-color: transparent;
+           border: none;
+           outline: none;
+           padding: 3px 10px;
+           border-radius: 5px;
+           margin: 40px 0px;
+           font-size: 25px;
+           position: relative;
+           top: -35px;
+           right: 12px;
+
+        }
+
+        .add:hover{
+            text-shadow: 0px 0px 25px rgb(230, 184, 33);
+            color: rgb(215, 128, 15);
+           
+            
+        }
+
+        .flex{
+            display: flex;
+            
+        }
+
+        .tick{
+           display: none;
+            
+        }
+
+        .noteslist{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .notes{
+            width: 40%;
+            min-height: 100px;
+            border-radius: 10px;
+            background-color: rgba(246, 242, 242, 0.822);
+            margin-bottom: 5px;
+        }
+
+        .notesheading{
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 600;
+           font-weight: bold;
+            margin: 5px 5px;
+          
+        }
+
+        .description{
+            margin: 2px 5px;
+        }
+
+
+       
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+        <div class="container">
+            <h1 class="heading">To-Do List  <i class="fa-solid fa-pen-to-square"></i> </h1>
+            <div class="inputbox"> <input type="text" placeholder="Enter Notes Here...." id="input">
+                <button onclick="add()" id="btnadd">Add</button>
+            </div>
+  
+
+            <ul id="listitem">
+                <!-- <li class="flex"> <i class="fa-solid fa-circle-check" style="color: tan;"></i> &nbsp; <span id="text">task1</span>  <button id="btnedit">✏️</button><button id = "btndelete">❌</button></li>
+                <li class="flex"> <i class="fa-solid fa-circle-check" style="color: tan;"></i> &nbsp; <span id="text">task1</span>  <button id="btnedit">✏️</button><button id = "btndelete">❌</button></li> -->
+            </ul> 
+
+        </div>
+
+        <div>
+            <div class="container" style="min-width: 400px;">
+                <h1 class="heading"> Notes Maker <i class="fa-regular fa-note-sticky"></i> </h1>
+
+                 
+                <div class="flex">
+                    <textarea id="input1" placeholder="Enter Notes..." rows="5"></textarea> <button class="add"><i class="fa-solid fa-plus" style="font-size: larger; font-weight: bold;"></i></button>
+                </div>
+         
+                <ul class="noteslist">
+                    <!-- <div class="notes">
+                        <div style="display: flex; justify-content: space-around; align-items: center; background-color: rgb(244, 199, 153);"><h2 class="notesheading">Title</h2> <i class="fa-solid fa-trash-can" style="color: rgb(217, 76, 76);"></i></div>
+                        <hr>
+                        <div class="description">this is description...</div> -->
+                    </div>
+
+                 
+             
+                </ul>
+
+                
+            
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+        const input = document.querySelector("input");
+        const listitem = document.getElementById("listitem");
+        const btnadd = document.getElementById("btnadd");
+        const span = document.getElementById("text")
+
+
+
+        input.addEventListener(
+         
+            "keypress", (e)=>{
+             
+               if(e.key === "Enter"){
+               
+               add();
+
+            }
+        }
+        )
+
+
+               function add(){
+
+             
+              const  data = input.value.trim();
+               if(data===""){
+                    alert("Please Enter some Text");
+                    return
+               }
+
+               const li = document.createElement("li");
+               li.classList.add("flex");
+               li.innerHTML = `<i class="fa-solid fa-circle-check" style="color: tan;"></i> &nbsp; <span id="text">${data}</span>  
+                <button id="btnedit">✏️</button><button id = "btndelete">❌</button></li>`
+
+                input.value = "";
+               
+            
+
+            
+
+               listitem.appendChild(li);
+
+
+
+
+               li.children[2].addEventListener(
+                "click",(e)=>{
+                   const spanvalue = li.querySelector("#text").innerText;
+                   const newdata = prompt("Edit Text:", spanvalue)
+                   li.children[1].innerText = newdata;
+                        
+                }
+               )
+               
+               
+               li.children[3].addEventListener(
+                "click", (e)=>{
+                    li.remove()
+
+                }
+               )
+               
+               console.log(li.children[0]);
+               li.children[0].addEventListener(
+                "click", (e)=>{
+                    li.children[1].classList.toggle("toggle");
+                    li.children[0].classList.toggle("tick");
+                    li.children[2].disabled = true;
+                    
+
+                }
+               )
+               
+            }
+
+     
+
+   </script>
+
+   <script>
+               const input1 = document.getElementById("input1");
+               const description = document.querySelector(".description");
+               const add1 = document.querySelector(".add");
+               const noteslist = document.querySelector(".noteslist")
+
+               add1.addEventListener(
+                "click", (e)=>{
+                    e.preventDefault();
+                    if(input1.value!== ""){
+                     data = input1.value.trim();
+                    input1.value = ""
+                
+
+                    notes = document.createElement("div");
+                    notes.classList.add("notes")
+                    notes.innerHTML = `
+                        <div style="display: flex; justify-content: space-around; align-items: center; background-color: rgb(244, 199, 153);;"><h2 class="notesheading">Title</h2> <i class="fa-solid fa-trash-can" style="color: rgb(217, 76, 76);"></i></div>
+                        <hr>
+                        <div class="description">${data}</div>
+                    `;
+
+                    noteslist.appendChild(notes);
+
+          
+                }
+
+                }
+               )
+
+               noteslist.addEventListener(
+                "click", (e)=>{
+                    if(e.target.classList.contains("fa-trash-can")){
+                        const note = e.target.closest(".notes")
+                        if(note){
+                            note.remove()
+                        }
+                    }
+                }
+               )
+               
+   </script>
+ 
+    
+</body>
+</html>
